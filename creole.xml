@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<CREOLE-DIRECTORY>
+	<CREOLE>
+
+		<!-- ========================================================================================= -->
+		<!--     Natural Earth Matching       -->
+		<!-- ========================================================================================= -->
+		<!--  Processing resource  -->
+		<RESOURCE>
+			<NAME>TEXTOMAP Natural Earth Matching</NAME>
+			<JAR>gate-textomap.jar</JAR>
+			<CLASS>gate.textomap.geom_matching.NaturalEarthMatchingProcess</CLASS>
+			<COMMENT>Natural Earth matching</COMMENT>
+			<ICON>map</ICON>
+
+			<!-- Declaring various parameters -->
+			<!-- PR need a document, which should be a runtime parameter -->
+			<!-- Unless specified parameters are manadatory -->
+			<!-- 
+			<PARAMETER NAME="document" COMMENT="The document to be processed"
+				RUNTIME="true">gate.Document</PARAMETER>
+
+			<PARAMETER NAME="rulesURL" COMMENT="example of an inittime parameter"
+				DEFAULT="resources/morph/default.rul" RUNTIME="false">
+				java.net.URL
+			</PARAMETER> 
+
+			<PARAMETER NAME="outputAnnotationSetName" COMMENT="name of the annotationSet used for output"
+				RUNTIME="true" OPTIONAL="true">java.lang.String</PARAMETER>
+			-->
+		</RESOURCE>
+
+		<!-- New PluginVR entry -->
+		<RESOURCE>
+			<NAME>Visual Resource for Natural Earth matching</NAME>
+			<JAR>gate-textomap.jar</JAR>
+			<CLASS>gate.textomap.geom_matching.gui.NaturalEarthMatchingViewer</CLASS>
+			<GUI TYPE="large">
+				<MAIN_VIEWER />
+				<RESOURCE_DISPLAYED>gate.textomap.geom_matching.NaturalEarthMatchingProcess</RESOURCE_DISPLAYED>
+			</GUI>
+		</RESOURCE>
+		
+		<!-- sortie -->
+		<RESOURCE>
+			<NAME>TEXTOMAP Carte</NAME>
+			<CLASS>gate.textomap.geom_matching.CarteLanguage</CLASS>
+			<!-- <INTERFACE>gate.wordnet.WordNet</INTERFACE> -->
+			<COMMENT>Carte</COMMENT>
+			<!-- <HELPURL>http://gate.ac.uk/userguide/sec:misc-creole:wn</HELPURL> -->
+			<PARAMETER NAME="propertyUrl" SUFFIXES="xml" COMMENT="Property File">java.net.URL</PARAMETER>
+			<ICON>map</ICON>
+		</RESOURCE>
+
+		<RESOURCE>
+			<NAME>Map Viewer</NAME>
+			<COMMENT>Visual Resource for map</COMMENT>
+			<CLASS>gate.textomap.geom_matching.gui.CarteViewer</CLASS>
+			<GUI TYPE="large">
+				<MAIN_VIEWER />
+				<RESOURCE_DISPLAYED>gate.textomap.geom_matching.CarteLanguage</RESOURCE_DISPLAYED>
+			</GUI>
+		</RESOURCE>
+		
+
+		<!-- ========================================================================================= -->
+		<!--     Extraction : Dashboard       -->
+		<!-- ========================================================================================= -->
+		<!-- -->
+		<RESOURCE>
+			<NAME>TEXTOMAP Dashboard</NAME>
+			<CLASS>gate.textomap.dashboard.TableauBordLanguage</CLASS>
+			<!-- <INTERFACE>gate.wordnet.WordNet</INTERFACE> -->
+			<COMMENT>TableauBord</COMMENT>
+			<!-- <HELPURL>http://gate.ac.uk/userguide/sec:misc-creole:wn</HELPURL> -->
+			<PARAMETER NAME="propertyUrl" SUFFIXES="xml" COMMENT="Property File">java.net.URL</PARAMETER>
+			<ICON>table</ICON>
+		</RESOURCE>
+
+		<RESOURCE>
+			<NAME>Dashboard Viewer</NAME>
+			<COMMENT>Visual Resource for dashboard</COMMENT>
+			<CLASS>gate.textomap.dashboard.gui.TableauBordViewer</CLASS>
+			<GUI TYPE="large">
+				<MAIN_VIEWER />
+				<RESOURCE_DISPLAYED>gate.textomap.dashboard.TableauBordLanguage</RESOURCE_DISPLAYED>
+			</GUI>
+		</RESOURCE>
+		
+		
+		<!-- ========================================================================================= -->
+		<!--     Disambiguation       -->
+		<!-- ========================================================================================= -->
+		<!--  -->
+		<RESOURCE>
+			<NAME>TEXTOMAP Extraction</NAME>
+			<CLASS>gate.textomap.disambiguation.ExtractionProcess</CLASS>
+			<COMMENT>Extraction process</COMMENT>
+			<ICON>extraction</ICON>
+			
+			<PARAMETER NAME="typeAnnotation" COMMENT="Liste des types d'annotation"
+				RUNTIME="true" OPTIONAL="false">java.lang.String</PARAMETER>
+				
+			<PARAMETER NAME="document" COMMENT="The document to be processed"
+				RUNTIME="true">gate.Document</PARAMETER>
+		</RESOURCE>
+		<RESOURCE>
+			<NAME>TEXTOMAP Disambiguation</NAME>
+			<CLASS>gate.textomap.disambiguation.DisambiguationProcess</CLASS>
+			<COMMENT>Disambiguation process</COMMENT>
+			<ICON>disambiguation</ICON>
+		</RESOURCE>
+
+	</CREOLE>
+</CREOLE-DIRECTORY> 
