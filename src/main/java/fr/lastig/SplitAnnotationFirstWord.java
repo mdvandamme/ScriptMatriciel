@@ -67,7 +67,6 @@ public class SplitAnnotationFirstWord {
               for (int i = 1; i < parts.length; i++) {
                 finAnnotation = finAnnotation + " " + parts[i];
               }
-              // System.out.println(txt + "      -->" + parts[0] + "    --" + finAnnotation + "--");
               
               // On crée une nouvelle annotation pour la première partie
               FeatureMap dfeat = Factory.newFeatureMap(); // ann.getFeatures();
@@ -87,8 +86,11 @@ public class SplitAnnotationFirstWord {
               efeat.put(NOM_ATT_SENTIMENT, ann.getFeatures().get(NOM_ATT_SENTIMENT));
               newdoc.getAnnotations().add(start + parts[0].length(), end, NOM_ANNOTATION, efeat);
               
+            } else {
+              // sinon rien à faire, on copie
+              newdoc.getAnnotations().add(start, end, NOM_ANNOTATION, ann.getFeatures());
+              System.out.println(gate.Utils.stringFor(doc, ann));
             }
-            // sinon rien à faire
           }
         }
       }
